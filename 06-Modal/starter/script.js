@@ -14,3 +14,9 @@ for(let i = 0; i < btnsShowModal.length; i++){
     });
 }
 
+    // add eventlistener to closeModal button
+    btnCloseModal.addEventListener('click', function() {
+        modal.classList.add('hidden');
+        overlay.classList.add('hidden');
+    });
+
