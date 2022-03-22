@@ -45,3 +45,21 @@ overlay.addEventListener('click', closeModal)
 //     overlay.classList.add('hidden');
 // })
 
+// how to work on keypress event
+document.addEventListener('keydown', function(event) {
+    console.log(event.key);
+
+    // if key equal to Escape, then we check 
+    // if in the modal element have hidden class or not
+    // if(event.key === 'Escape'){
+    //     if(!modal.classList.contains('hidden')){
+    //         closeModal();
+    //     }
+    // }
+
+    // refactoring by used && 
+    if(event.key === 'Escape' && !modal.classList.contains('hidden')){
+        closeModal();
+    }
+
+})
