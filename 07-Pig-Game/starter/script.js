@@ -14,16 +14,40 @@ const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
 
-// Starting conditions
-score0El.textContent = 0;
-score1El.textContent = 0;
-diceEl.classList.add('hidden');
+// // Starting conditions
+// score0El.textContent = 0;
+// score1El.textContent = 0;
+// diceEl.classList.add('hidden');
 
-// Set current score
-const scores = [0, 0];
-let currentScore = 0;
-let activePlayer = 0;
-let playing = true;
+// // Set current score
+// const scores = [0, 0];
+// let currentScore = 0;
+// let activePlayer = 0;
+// let playing = true;
+
+// declare the variable outside the function 
+let scores, currentScore, activePlayer, playing;
+
+const init = function() {
+    // Set current score
+    scores = [0, 0];
+    currentScore = 0;
+    activePlayer = 0;
+    playing = true;
+
+    // Starting conditions
+    score0El.textContent = 0;
+    score1El.textContent = 0;
+    current0El.textContent = 0;
+    current1El.textContent = 0;
+    
+    diceEl.classList.add('hidden');
+    player0El.classList.remove('player--winner');
+    player1El.classList.remove('player--winner');
+    player0El.classList.add('player--active');
+    player1El.classList.remove('player--active');
+};
+init();
 
 const switchPlayer = function() {
     document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -82,3 +106,19 @@ btnHold.addEventListener('click', function() {
         }
     }
 });
+
+// btnNew.addEventListener('click', function() {
+//     // 1. Reset current score, and score, be able to click on btnRoll and btnHold
+//     console.log('Reset game')
+//     playing = true;
+
+//     score0El.textContent = 0;
+//     score1El.textContent = 0;
+//     current0El.textContent = 0;
+//     current1El.textContent = 0;
+
+//     document.querySelector(`.player--${activePlayer}`).classList.remove('player--winner');
+//     document.querySelector(`.player--${activePlayer}`).classList.add('player--active');
+// });
+
+btnNew.addEventListener('click', init);
