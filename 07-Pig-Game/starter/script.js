@@ -28,6 +28,7 @@ const btnHold = document.querySelector('.btn--hold');
 // declare the variable outside the function 
 let scores, currentScore, activePlayer, playing;
 
+// create function init stand for initialize to start 
 const init = function() {
     // Set current score
     scores = [0, 0];
@@ -93,7 +94,7 @@ btnHold.addEventListener('click', function() {
         document.getElementById(`score--${activePlayer}`).textContent = scores[activePlayer];
     
         // 2. Check if player's score is >= 100
-        if(scores[activePlayer] >= 20){
+        if(scores[activePlayer] >= 100){
             // Finish the game
             playing =  false;
             diceEl.classList.add('hidden');
